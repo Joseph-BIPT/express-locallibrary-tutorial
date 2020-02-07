@@ -47,7 +47,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const mongoDbUrl = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
+var dev_db_url = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDbUrl,{useNewUrlParser:true, useFindAndModify:false, useUnifiedTopology: true } );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
