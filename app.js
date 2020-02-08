@@ -55,7 +55,7 @@ if(process.env.MONGODB_URI){
 }else
 	var mongoDB = dev_db_url;
 
-mongoose.connect(mongoDB,{useNewUrlParser:true, useFindAndModify:false, useUnifiedTopology: true } );
+mongoose.connect(mongoDB,{useNewUrlParser:false, useFindAndModify:false, useUnifiedTopology: true } );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
