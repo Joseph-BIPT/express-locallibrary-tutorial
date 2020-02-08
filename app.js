@@ -50,10 +50,14 @@ app.use(function(err, req, res, next) {
 //var dev_db_url = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
 //var prod_db_url = 'mongodb+srv://User_for_production:a5Bor4sik3cvO@cluster0-iuis4.mongodb.net/ProductionDB';
 //var dev_db_url = 'mongodb+srv://User_for_production:a5Bor4sik3cvO@cluster0-mbdj7.mongodb.net/ProductionDB?retryWrites=true'
-if(process.env.NODE_ENV == 'production'){
+/* if(process.env.NODE_ENV == 'production'){
 	var mongoDB = 'mongodb+srv://User_for_production:a5Bor4sik3cvO@cluster0-iuis4.mongodb.net/ProductionDB';
 }else
-	var mongoDB = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
+	var mongoDB = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library'; */
+
+var dev_db_url = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
+var prod_db_url = 'mongodb+srv://User_for_production:a5Bor4sik3cvO@cluster0-iuis4.mongodb.net/ProductionDB';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 mongoose.connect(mongoDB,{useNewUrlParser:true, useFindAndModify:false, useUnifiedTopology: true } );
 var db = mongoose.connection;
