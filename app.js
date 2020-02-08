@@ -49,7 +49,7 @@ app.use(function(err, req, res, next) {
 
 var dev_db_url = 'mongodb+srv://Joseph:Gq7qTpbq6TZEXgYz@cluster0-iuis4.mongodb.net/local_library';
 var prod_db_url = 'mongodb+srv://User_for_production:a5Bor4sik3cvO@cluster0-iuis4.mongodb.net/local_library';
-var MONGODB = process.env.MONGODB_URI ? prod_db_url : dev_db_url;
+var MONGODB = prod_db_url;
 mongoose.connect(MONGODB,{useNewUrlParser:true, useFindAndModify:false, useUnifiedTopology: true } );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
